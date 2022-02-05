@@ -1,0 +1,59 @@
+---
+title: "p8105_hw1_pika1218"
+author: "pika"
+date: "1/18/2022"
+output: github_document
+---
+## load library
+
+```{r}
+library(tidyverse)
+```
+
+## Problem 1
+Create a date frame. 
+```{r}
+problem1_df = tibble(
+  vec_numeric = rnorm(10),
+  vec_logical = vec_numeric > 0,
+  vec_character = c("a", "b" , "c", "d", "e", "f", "g", "h", "i", "j"),
+  vec_factor = factor(c("infant", "infant", "toddler", "infant", "adult", "infant", "adult", "toddler", "infant", "toddler"))
+  
+)
+```
+
+take the mean of each variable in the `problem_df` 
+
+```{r}
+mean(pull(problem1_df, vec_numeric))
+mean(pull(problem1_df, vec_logical))
+mean(pull(problem1_df, vec_character))
+mean(pull(problem1_df, vec_factor))
+
+```
+
+The vec_numeric and vec_ligical can calculate mean number. The vec_character and vec_factor doesn't has mean number. 
+
+```{r}
+mean(as.numeric(pull(problem1_df, vec_numeric)))
+mean(as.numeric(pull(problem1_df, vec_logical)))
+mean(as.numeric(pull(problem1_df, vec_factor)))
+mean(as.numeric(pull(problem1_df, vec_factor)))
+```
+
+
+# Problem2
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+```{r}
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
+ggsave("p8105_hw1_pika1218.pdf")
+
+```
+
+
+
+
+
