@@ -46,10 +46,15 @@ mean(as.numeric(pull(problem1_df, vec_factor)))
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
+In the dataset of penguins, the important variable is Species which is penguins name. 
+This dataset including `r nrow(penguins)` rows, and `r ncol(penguins)` columns.
+The mean is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`.
 
 ```{r}
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) + geom_point()
 ggsave("p8105_hw1_pika1218.pdf")
+
+
 
 ```
 
